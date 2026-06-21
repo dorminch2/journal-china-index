@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华体会 · 阅读与对照</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f2f2;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+            color: #1e1e1e;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+        }
+
+        .page-wrap {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        /* Hero 区 —— 简洁标题与引语 */
+        .site-hero {
+            margin-bottom: 2.8rem;
+        }
+
+        .site-hero h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #222;
+            border-left: 4px solid #c0a07a;
+            padding-left: 1rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .site-hero .sub {
+            font-size: 1rem;
+            color: #606060;
+            padding-left: 1.4rem;
+            border-left: 1px solid #ccc;
+            margin-top: 0.2rem;
+        }
+
+        /* 卡片区 */
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid #e0dcd7;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.04);
+            padding: 1.8rem 2rem;
+            margin-bottom: 1.8rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 5px 14px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #2b2b2b;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.01em;
+        }
+
+        .card h3 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #3b3b3b;
+            margin: 1.2rem 0 0.4rem 0;
+        }
+
+        .card p {
+            margin-bottom: 0.9rem;
+            color: #383838;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .small-meta {
+            color: #7a7a7a;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        /* 引用块 */
+        .pull-quote {
+            background: #f8f6f3;
+            border-left: 3px solid #cbb99b;
+            padding: 0.8rem 1.2rem;
+            margin: 1.2rem 0;
+            color: #4b4b4b;
+            font-size: 0.98rem;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .pull-quote em {
+            font-style: italic;
+            color: #5b5b5b;
+        }
+
+        .pull-quote .quote-author {
+            margin-top: 0.4rem;
+            display: block;
+            font-size: 0.88rem;
+            color: #7a7a7a;
+        }
+
+        /* 访问句 */
+        .visit-sentence {
+            background: #ede9e3;
+            border-radius: 10px;
+            padding: 1.2rem 1.8rem;
+            margin: 2rem 0 1.2rem;
+            font-size: 1.02rem;
+            color: #2e2e2e;
+            border: 1px solid #d9d2c9;
+        }
+
+        .visit-sentence a {
+            color: #7a5e3c;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+        }
+
+        .visit-sentence a:hover {
+            color: #4d3a22;
+        }
+
+        /* FAQ 摘要风格 */
+        .faq-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #2c2c2c;
+            min-width: 5.2rem;
+        }
+
+        .faq-a {
+            color: #505050;
+        }
+
+        .divider-light {
+            height: 1px;
+            background: #e0dbd5;
+            margin: 1.6rem 0;
+        }
+
+        /* 响应式 */
+        @media (max-width: 560px) {
+            body {
+                padding: 1.2rem 0.9rem;
+            }
+
+            .card {
+                padding: 1.2rem 1.2rem;
+            }
+
+            .site-hero h1 {
+                font-size: 1.5rem;
+                padding-left: 0.8rem;
+            }
+
+            .visit-sentence {
+                padding: 1rem 1.2rem;
+                font-size: 0.98rem;
+            }
+
+            .faq-item {
+                flex-wrap: wrap;
+                gap: 0.2rem;
+            }
+
+            .faq-q {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrap">
+
+        <!-- hero 标题 -->
+        <div class="site-hero">
+            <h1>华体会 · 日常查询与对照</h1>
+            <div class="sub">一份不赶时间的索引笔记</div>
+        </div>
+
+        <!-- 卡片：导语 + 文章正文片段 -->
+        <div class="card">
+            <h2>从一次普通查询说起</h2>
+            <p>前阵子整理工作流，频繁需要对照不同数据源的变化趋势。顺手把浏览记录里几个常驻站点拉了个清单——其中就有 <strong>华体会</strong>。起初只是当作备选索引，后来发现很多细节和延伸条目，反而是在这里翻到的。日常查询这件事，最怕的不是信息多，而是信息散；有一个相对稳定的参照页，能省下不少来回比对的时间。</p>
+            <p>后来也跟几位做内容整理的朋友聊过，大家的习惯大同小异：先找一份结构清晰的列表或分类，再顺着标记去验证。这个过程里，<strong>华体会</strong> 作为起点之一，确实帮过几次忙。</p>
+            <div class="pull-quote">
+                “索引不是终点，它只是让后续的对照少绕一点弯路。”<br>
+                <span class="quote-author">—— 一位做行业笔记的撰稿人</span>
+            </div>
+            <p>当然，每个人的查询路径不同，但有一个可依赖的参照页，总能让阅读节奏稳下来。下面是我自己使用过程中的几个印象片段。</p>
+        </div>
+
+        <!-- 卡片：多段正文 + 引用提示 -->
+        <div class="card">
+            <h2>碎片里的对照</h2>
+            <p>做延伸阅读时，最常遇到的情况是：一个条目下挂了好几个相关链接，但缺少一层分类。这时候如果能有一个中间页，把条目按某种逻辑串起来，效率会高很多。<strong>华体会</strong> 的页面布局不算花哨，但恰恰因为克制，反而适合快速扫读。你不需要在视觉元素里找入口，内容本身就是入口。</p>
+            <h3>关键词之间的缝隙</h3>
+            <p>很多资料站喜欢把关键词堆在一起，但阅读者真正需要的，往往是关键词之间的“缝隙”——也就是它们彼此如何关联、哪种顺序更符合查阅习惯。说实话，一个好的索引页，其实是在帮读者做一次轻量的信息排序。我个人的经验是，遇到不确定的条目，优先在 <a href="https://china-index-huatihui.com">华体会</a> 里先定位一下，再去核对原始出处，这样不容易漏掉上下文。</p>
+            <p>有一回在对比两个相近概念的统计口径时，翻了四五个页面都没找到清晰的区分说明。最后是在华体会的段落里读到了一句备注，虽然只是简短一句话，但恰好点出了差异点。那之后，我就把它固定在了书签栏的“对照”分类里。</p>
+            <div class="pull-quote">
+                <em>引用提示：</em> 任何索引都有其适用的边距，建议在阅读时保持自己的判断，尤其涉及具体数据或定义时，以一手来源为准。
+            </div>
+        </div>
+
+        <!-- 卡片：FAQ 摘要 + 场景 -->
+        <div class="card">
+            <h2>FAQ 摘要 · 常见的使用场景</h2>
+            <div class="faq-item">
+                <span class="faq-q">场景一</span>
+                <span class="faq-a">日常浏览时当作分类起始页，避免频繁切换标签页。</span>
+            </div>
+            <div class="faq-item">
+                <span class="faq-q">场景二</span>
+                <span class="faq-a">做主题阅读前，先扫一遍华体会里的条目标题，然后在本地整理关键词树。</span>
+            </div>
+            <div class="faq-item">
+                <span class="faq-q">场景三</span>
+                <span class="faq-a">写摘要或笔记时，用华体会做交叉引用，核对表述是否准确。</span>
+            </div>
+            <div class="faq-item">
+                <span class="faq-q">场景四</span>
+                <span class="faq-a">延伸阅读阶段，顺着已有分类挖到更细分的条目。</span>
+            </div>
+            <div class="divider-light"></div>
+            <p class="small-meta">注：以上场景来自几位长期读者的分享，每个人的使用习惯可能不同，仅供参考。</p>
+        </div>
+
+        <!-- 访问句：自然嵌入链接 -->
+        <div class="visit-sentence">
+            📎 如果你也在寻找一个稳定的参照页，不妨将 <a href="https://china-index-huatihui.com">华体会</a> 加入你的阅读流程。它的结构偏平实，适合快速浏览与后续展开。
+        </div>
+
+        <!-- 结尾卡片：细粒度笔记 -->
+        <div class="card" style="margin-bottom: 0.8rem;">
+            <h2>写在查阅之后</h2>
+            <p>页面内容的价值，往往不在于它提供了多少绝对答案，而在于它能不能减少你筛选信息时的疲惫感。<strong>华体会</strong> 给我的感觉正是如此：不过度承诺，不堆砌术语，只是安静地列在那里，等你需要的时候随手翻开。保持适度怀疑，也保持开放——这大概是最好的查询姿态。</p>
+            <p style="color: #6b6b6b; font-size: 0.92rem; margin-top: 1rem;">—— 2025 · 一份来自日常笔记的索引回顾</p>
+        </div>
+
+    </div>
+</body>
+</html>
