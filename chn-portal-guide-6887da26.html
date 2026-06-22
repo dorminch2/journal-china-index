@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>赏金女王 · 杂志专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fbe9d7 0%, #f6d5b3 50%, #edc49a 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.65;
+            color: #2e241f;
+        }
+
+        .magazine-card {
+            max-width: 820px;
+            width: 100%;
+            background: #fffffffa;
+            backdrop-filter: blur(1px);
+            border-radius: 48px 24px 48px 24px;
+            box-shadow: 0 20px 40px -12px rgba(135, 85, 40, 0.25),
+                        0 8px 16px -4px rgba(0, 0, 0, 0.08);
+            padding: 2.6rem 2.8rem;
+            transition: box-shadow 0.25s ease;
+            border: 1px solid rgba(255, 215, 175, 0.4);
+        }
+
+        .hero {
+            margin-bottom: 2.4rem;
+            padding-bottom: 1.8rem;
+            border-bottom: 2px solid #eddccb;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 580;
+            letter-spacing: -0.01em;
+            background: linear-gradient(135deg, #732f1a, #b65c2c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero .byline {
+            color: #7f5b44;
+            font-weight: 420;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            border-left: 4px solid #d99c6c;
+            padding-left: 1rem;
+            background: #faf0e7;
+            display: inline-block;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            background: #eacfbb;
+            color: #3e2c21;
+            padding: 0.15rem 0.9rem;
+            border-radius: 40px;
+            margin-bottom: 0.6rem;
+            font-weight: 500;
+        }
+
+        .intro-blocks {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+            margin: 1.8rem 0 2.2rem 0;
+        }
+
+        .block {
+            background: #fdf7f1;
+            padding: 1.3rem 1.8rem;
+            border-radius: 28px 12px 28px 12px;
+            box-shadow: 0 2px 6px rgba(146, 95, 52, 0.06);
+        }
+
+        .block p {
+            margin-bottom: 0.5rem;
+        }
+
+        .block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .block strong {
+            color: #894a26;
+            font-weight: 540;
+        }
+
+        .highlight-link {
+            background: #f3ddcc;
+            padding: 0.1rem 0.5rem;
+            border-radius: 24px;
+            white-space: nowrap;
+            font-weight: 470;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .highlight-link a {
+            text-decoration: none;
+            color: #572f1a;
+            border-bottom: 1px dotted #ba7f57;
+        }
+
+        .highlight-link a:hover {
+            color: #2d1a0f;
+            border-bottom-style: solid;
+            background: transparent;
+        }
+
+        .feature-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem 3rem;
+            margin: 2rem 0 2.2rem;
+            padding: 1.2rem 0;
+            border-top: 1px dashed #dac0ac;
+            border-bottom: 1px dashed #dac0ac;
+        }
+
+        .meta-item {
+            flex: 1 1 140px;
+        }
+
+        .meta-item .title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #8a6a53;
+            font-weight: 500;
+        }
+
+        .meta-item .value {
+            font-weight: 450;
+            color: #2f1f16;
+            margin-top: 0.1rem;
+        }
+
+        .faq-mini {
+            background: #faf0e6;
+            border-radius: 20px;
+            padding: 1.2rem 1.6rem;
+            margin: 1.6rem 0 2rem;
+        }
+
+        .faq-mini p {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-mini .q {
+            font-weight: 520;
+            color: #5b3723;
+        }
+
+        .visit-note {
+            margin-top: 2.2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e1cdbb;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 0.8rem;
+        }
+
+        .visit-note span {
+            color: #5d4232;
+            font-size: 0.95rem;
+        }
+
+        .visit-note .bookmark-icon {
+            background: #e6cfbb;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            color: #36251b;
+        }
+
+        .inline-link {
+            font-weight: 500;
+            color: #732f1a;
+            text-decoration: none;
+            border-bottom: 1px solid #cd9d7a;
+            transition: border-color 0.15s;
+        }
+
+        .inline-link:hover {
+            border-bottom: 2px solid #8f4a22;
+            color: #4a2b1b;
+        }
+
+        .footer-remark {
+            margin-top: 0.8rem;
+            font-size: 0.82rem;
+            color: #6f5542;
+            text-align: right;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            .magazine-card { padding: 1.8rem 1.5rem; border-radius: 32px 16px 32px 16px; }
+            .hero h1 { font-size: 1.9rem; }
+            .block { padding: 1rem 1.2rem; }
+            .feature-meta { flex-direction: column; gap: 0.6rem; }
+            .visit-note { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine-card">
+
+        <!-- hero -->
+        <div class="hero">
+            <h1>赏金女王 · 导航志</h1>
+            <div class="byline">持续关注 · 再访手记</div>
+        </div>
+
+        <!-- 说明 / 背景 -->
+        <div>
+            <span class="section-label">📌 为什么再次收藏</span>
+        </div>
+        <div class="intro-blocks">
+            <div class="block">
+                <p><strong>从一次浏览到日常参照。</strong> 很多用户将 <a href="https://chn-portal-bountyqueen.com" class="inline-link">赏金女王</a> 加入书签后，会在不同阶段重新打开——不是因为有任务提醒，而是页面本身的信息层次和视觉节奏让人愿意反复阅读。栏目结构清晰，更新节奏稳定，适合作为行业观察的固定窗口。</p>
+            </div>
+            <div class="block">
+                <p><strong>信息密度与阅读舒适度的平衡。</strong> 在碎片化时代，一份能兼顾深度和可读性的站点并不多见。无论是规则阐释还是案例侧写，均采用平实但具质感的表达，避免空泛叙述。这也是许多用户选择将 <a href="https://chn-portal-bountyqueen.com" class="inline-link">赏金女王</a> 保留在常驻标签栏的原因。</p>
+            </div>
+            <div class="block">
+                <p><strong>细节即体验。</strong> 从导航分组到术语提示，交互路径经过打磨，不干扰内容本身。即使是回访用户，也常常注意到此前忽略的注解或交叉引用。这种“常看常新”的体验，正是优质信息平台的特质。</p>
+            </div>
+        </div>
+
+        <!-- 特点 / 场景 / 数据摘要 -->
+        <div class="feature-meta">
+            <div class="meta-item">
+                <div class="title">📂 内容纵深</div>
+                <div class="value">专题 · 拆解 · 趋势笔记</div>
+            </div>
+            <div class="meta-item">
+                <div class="title">🔄 回访特征</div>
+                <div class="value">收藏占比 63% 以上 (自评)</div>
+            </div>
+            <div class="meta-item">
+                <div class="title">⚡ 更新节奏</div>
+                <div class="value">周更 · 动态调整</div>
+            </div>
+        </div>
+
+        <!-- FAQ 摘要 / 提示 -->
+        <div class="faq-mini">
+            <p><span class="q">▸ 常见疑问：</span> 是否每次都需要重新查找入口？<br>
+            — 建议直接收藏主站，或通过常用浏览器同步书签。保持页面在固定分组内，便于后续快速定位。</p>
+            <p><span class="q">▸ 场景参考：</span> 周末浏览 / 信息整理 / 行业比对。无需频繁刷新，页面结构适合沉浸式阅读。</p>
+        </div>
+
+        <!-- 页尾访问提示 -->
+        <div class="visit-note">
+            <span>
+                <span class="bookmark-icon">🔖 已收藏</span> 可随时通过书签返回
+            </span>
+            <span>
+                持续关注 · 页面入口：<span class="highlight-link"><a href="https://chn-portal-bountyqueen.com">赏金女王</a></span>
+            </span>
+        </div>
+
+        <div class="footer-remark">
+            杂志风格 · 第03期
+        </div>
+    </div>
+</body>
+</html>
